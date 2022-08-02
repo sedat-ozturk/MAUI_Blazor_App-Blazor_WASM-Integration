@@ -1,4 +1,4 @@
-﻿namespace ListManager.Application.Interfaces
+﻿namespace ListForm.Api.Application.Interfaces
 {
     public interface IUnitOfWork
     {

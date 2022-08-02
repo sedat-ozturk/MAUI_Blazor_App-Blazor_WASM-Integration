@@ -1,6 +1,6 @@
-﻿using ListManager.Core.Entities;
+﻿using ListForm.Api.Core.Entities;
 
-namespace ListManager.Application.Interfaces
+namespace ListForm.Api.Application.Interfaces
 {
     public interface IProductRepository : IGenericRepository<Product>
     {

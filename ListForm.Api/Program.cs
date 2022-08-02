@@ -1,5 +1,5 @@
-using ListManager.Application.Interfaces;
-using ListManager.Infrastructure.Repository;
+using ListForm.Api.Application.Interfaces;
+using ListForm.Api.Infrastructure.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -34,7 +34,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI(c =>
     {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "ListManager.WebApi");
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "ListForm.Api.WebApi");
     });
 
     app.UseDeveloperExceptionPage();

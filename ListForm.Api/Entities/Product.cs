@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace ListManager.Core.Entities
+namespace ListForm.Api.Core.Entities
 {
     public class Product
     {

@@ -1,4 +1,4 @@
-﻿namespace ListManager.Infrastructure.Repository
+﻿namespace ListForm.Api.Infrastructure.Repository
 {
     public class RepositorySortJson
     {

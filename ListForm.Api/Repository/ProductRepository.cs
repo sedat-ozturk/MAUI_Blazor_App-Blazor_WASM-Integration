@@ -1,6 +1,6 @@
 ﻿using Dapper;
-using ListManager.Application.Interfaces;
-using ListManager.Core.Entities;
+using ListForm.Api.Application.Interfaces;
+using ListForm.Api.Core.Entities;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using System;
@@ -9,7 +9,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ListManager.Infrastructure.Repository
+namespace ListForm.Api.Infrastructure.Repository
 {
     public class ProductRepository : IProductRepository
     {
@@ -19,7 +19,7 @@ namespace ListManager.Infrastructure.Repository
             this.configuration = configuration;
         }
 
-        public async Task<IReadOnlyList<Product>> GetAllAsync(int skip, int take = 10, string sort = "Id")
+        public async Task<List<Product>> GetAllAsync(int skip = 0, int take = 10, string sort = "")
         {
             var sql = "SELECT * FROM Products";
 

@@ -1,6 +1,6 @@
-﻿using ListManager.Application.Interfaces;
+﻿using ListForm.Api.Application.Interfaces;
 
-namespace ListManager.Infrastructure.Repository
+namespace ListForm.Api.Infrastructure.Repository
 {
     public class UnitOfWork : IUnitOfWork
     {
