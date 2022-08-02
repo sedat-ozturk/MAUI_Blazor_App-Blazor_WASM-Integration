@@ -1,1 +1,0 @@
-C:\Projects\ListForm\ListForm.Maui\ListForm.Maui.csproj;x64
