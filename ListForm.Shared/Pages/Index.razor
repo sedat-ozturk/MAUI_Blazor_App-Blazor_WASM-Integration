@@ -1,8 +1,6 @@
 ﻿@page "/"
-@using ListForm.Api.Application.Interfaces
-@using ListForm.Api.Core.Entities
-@using ListForm.Api.Infrastructure.Repository
-@using ListForm.Shared.Interfaces
+@using ListForm.Domain.Entities
+@using ListForm.Domain.Repository
 
 <PageTitle>Index</PageTitle>
 
@@ -17,14 +15,15 @@
 </DataGrid>
 
 @code {
+    private List<Product> productList;
+
     [Inject]
     public ProductRepository ProductData { get; set; }
-    private List<Product> productList;
-    private Product selectedProduct;
 
     protected override async Task OnInitializedAsync()
     {
         productList = await ProductData.GetAllAsync();
         await base.OnInitializedAsync();
     }
+
 }

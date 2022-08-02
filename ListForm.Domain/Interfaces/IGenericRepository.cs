@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace ListForm.Api.Application.Interfaces
+namespace ListForm.Domain.Interfaces
 {
     public interface IGenericRepository<T> where T : class
     {

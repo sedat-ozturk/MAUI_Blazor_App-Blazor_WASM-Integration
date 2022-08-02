@@ -1,5 +1,5 @@
-using ListForm.Api.Application.Interfaces;
-using ListForm.Api.Infrastructure.Repository;
+using ListForm.Domain.Interfaces;
+using ListForm.Domain.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -11,6 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddCors();
 builder.Services.AddControllers();
+
 builder.Services.AddTransient<IProductRepository, ProductRepository>();
 builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
 
@@ -22,7 +23,7 @@ builder.Services.AddSwaggerGen(c =>
     c.SwaggerDoc("v1", new OpenApiInfo
     {
         Version = "v1",
-        Title = "ListForm - WebApi",
+        Title = "ListForm - Api",
     });
 });
 
@@ -34,7 +35,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI(c =>
     {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "ListForm.Api.WebApi");
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "ListForm.Api");
     });
 
     app.UseDeveloperExceptionPage();

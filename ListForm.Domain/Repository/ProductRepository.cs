@@ -1,15 +1,11 @@
 ﻿using Dapper;
-using ListForm.Api.Application.Interfaces;
-using ListForm.Api.Core.Entities;
+using ListForm.Domain.Interfaces;
+using ListForm.Domain.Entities;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace ListForm.Api.Infrastructure.Repository
+namespace ListForm.Domain.Repository
 {
     public class ProductRepository : IProductRepository
     {

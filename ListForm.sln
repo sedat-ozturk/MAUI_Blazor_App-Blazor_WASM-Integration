@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ListForm.Shared", "ListForm
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ListForm.Maui", "ListForm.Maui\ListForm.Maui.csproj", "{20CBE66B-2398-4284-87D3-A5BA9D7FCA01}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListForm.Api", "ListForm.Api\ListForm.Api.csproj", "{DA1EFCA5-22D3-43BC-9983-36506ED9B023}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ListForm.Api", "ListForm.Api\ListForm.Api.csproj", "{DA1EFCA5-22D3-43BC-9983-36506ED9B023}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListForm.Domain", "ListForm.Domain\ListForm.Domain.csproj", "{2747A96E-792D-470B-BEFB-BB7FD87FB863}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +37,10 @@ Global
 		{DA1EFCA5-22D3-43BC-9983-36506ED9B023}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA1EFCA5-22D3-43BC-9983-36506ED9B023}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA1EFCA5-22D3-43BC-9983-36506ED9B023}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2747A96E-792D-470B-BEFB-BB7FD87FB863}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2747A96E-792D-470B-BEFB-BB7FD87FB863}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2747A96E-792D-470B-BEFB-BB7FD87FB863}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2747A96E-792D-470B-BEFB-BB7FD87FB863}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

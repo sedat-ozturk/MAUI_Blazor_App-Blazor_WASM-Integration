@@ -1,9 +1,9 @@
-﻿using ListForm.Api.Application.Interfaces;
-using ListForm.Api.Core.Entities;
+﻿using ListForm.Domain.Interfaces;
+using ListForm.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
-namespace ListForm.Api.WebApi.Controllers
+namespace ListForm.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

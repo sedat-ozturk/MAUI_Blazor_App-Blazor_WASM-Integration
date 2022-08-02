@@ -1,4 +1,4 @@
-﻿namespace ListForm.Api.Infrastructure.Repository
+﻿namespace ListForm.Domain.Repository
 {
     public class RepositorySortJson
     {
