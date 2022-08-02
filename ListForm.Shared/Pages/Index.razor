@@ -18,12 +18,14 @@
     private List<Product> productList;
 
     [Inject]
-    public ProductRepository ProductData { get; set; }
+    public HttpClient _httpClient { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
-        productList = await ProductData.GetAllAsync();
-        await base.OnInitializedAsync();
+        var response = await _httpClient.GetAsync("https://localhost:7114/api/Product");
+        response.EnsureSuccessStatusCode();
+        productList = await response.Content.ReadFromJsonAsync<List<Product>>();
+
     }
 
 }
