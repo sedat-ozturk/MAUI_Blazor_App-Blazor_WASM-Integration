@@ -1,5 +1,6 @@
 ﻿@page "/"
 @using ListForm.Domain.Entities
+@using ListForm.Domain.Interfaces
 @using ListForm.Domain.Repository
 
 <PageTitle>Index</PageTitle>
@@ -18,14 +19,18 @@
     private List<Product> productList;
 
     [Inject]
-    public HttpClient _httpClient { get; set; }
+    public IProductRepository ProductRepo { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
-        var response = await _httpClient.GetAsync("https://localhost:7114/api/Product");
-        response.EnsureSuccessStatusCode();
-        productList = await response.Content.ReadFromJsonAsync<List<Product>>();
-
+        productList = await ProductRepo.GetAllAsync();
     }
 
+    //[Inject]
+    //public HttpClient _httpClient { get; set; }
+
+    //protected override async Task OnInitializedAsync()
+    //{
+    //    productList = await _httpClient.GetFromJsonAsync<List<Product>>($"{baseURL}/api/Product");
+    //}
 }
