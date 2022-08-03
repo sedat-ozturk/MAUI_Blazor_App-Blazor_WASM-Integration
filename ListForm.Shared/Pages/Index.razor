@@ -1,13 +1,14 @@
 ﻿@page "/"
 @using ListForm.Domain.Entities
 @using ListForm.Domain.Interfaces
-@using ListForm.Domain.Repository
+@using ListForm.Infrastructure.Repository
 
 <PageTitle>Index</PageTitle>
 
 <DataGrid TItem="Product"
           Data="@productList"
-          Responsive>
+          Responsive
+          Filterable>
     <DataGridCommandColumn />
     <DataGridColumn Field="@nameof(Product.Id)" Caption="#" Sortable="false" />
     <DataGridColumn Field="@nameof(Product.Name)" Caption="Name" Editable />
@@ -31,6 +32,8 @@
 
     //protected override async Task OnInitializedAsync()
     //{
+    //    var baseURL = "https://localhost:7114";
+
     //    productList = await _httpClient.GetFromJsonAsync<List<Product>>($"{baseURL}/api/Product");
     //}
 }
