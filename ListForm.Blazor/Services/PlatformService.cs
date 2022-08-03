@@ -1,6 +1,6 @@
 ﻿using ListForm.Shared.Interfaces;
 
-namespace ListForm.BlazorWasm.Services
+namespace ListForm.Blazor.Services
 {
     public class PlatformService : IPlatformService
     {

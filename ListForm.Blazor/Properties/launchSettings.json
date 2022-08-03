@@ -8,7 +8,7 @@
     }
   },
   "profiles": {
-    "ListForm.BlazorWasm": {
+    "ListForm.Blazor": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
