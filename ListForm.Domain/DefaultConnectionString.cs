@@ -4,7 +4,7 @@
     {
         public static string DefaultConnectionString()
         {
-            return "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=ListForm;Trusted_Connection=True;MultipleActiveResultSets=True";
+            return "Data Source=(localdb)\\ProjectModels;Initial Catalog=ListForm;Integrated Security=True;MultipleActiveResultSets=True";
         }
     }
 }
