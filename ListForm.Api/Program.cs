@@ -4,8 +4,6 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using System.Net.Http;
-using System;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,8 +12,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddCors();
 builder.Services.AddControllers();
 
-builder.Services.AddScoped<IProductRepository, ProductRepository>();
-builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddSingleton<IProductRepository, ProductRepository>();
+builder.Services.AddSingleton<IUnitOfWork, UnitOfWork>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

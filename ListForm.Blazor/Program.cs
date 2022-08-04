@@ -15,9 +15,9 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
-builder.Services.AddScoped<IProductRepository, ProductRepository>();
-builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
-builder.Services.AddScoped<IPlatformService, PlatformService>();
+builder.Services.AddSingleton<IProductRepository, ProductRepository>();
+builder.Services.AddSingleton<IUnitOfWork, UnitOfWork>();
+builder.Services.AddSingleton<IPlatformService, PlatformService>();
 
 builder.Services.AddBlazorise(options => { options.Immediate = true; }).AddBootstrapProviders().AddFontAwesomeIcons();
 

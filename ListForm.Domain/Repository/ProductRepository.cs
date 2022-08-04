@@ -1,7 +1,6 @@
 ﻿using Dapper;
-using ListForm.Domain.Interfaces;
 using ListForm.Domain.Entities;
-using Microsoft.Extensions.Configuration;
+using ListForm.Domain.Interfaces;
 using Newtonsoft.Json;
 using System.Data.SqlClient;
 
@@ -9,12 +8,6 @@ namespace ListForm.Domain.Repository
 {
     public class ProductRepository : IProductRepository
     {
-        private readonly IConfiguration configuration;
-        public ProductRepository(IConfiguration configuration)
-        {
-            this.configuration = configuration;
-        }
-
         public async Task<List<Product>> GetAllAsync(int skip = 0, int take = 10, string sort = "")
         {
             var sql = "SELECT * FROM Products";
@@ -38,18 +31,26 @@ namespace ListForm.Domain.Repository
             sql = sql + " OFFSET " + skip.ToString() + " ROWS";
             sql = sql + " FETCH NEXT " + take.ToString() + " ROWS ONLY";
 
-            using (var connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection")))
+            using (var connection = new SqlConnection(AppSettings.DefaultConnectionString()))
             {
-                connection.Open();
-                var result = await connection.QueryAsync<Product>(sql);
-                return result.ToList();
+                try
+                {
+                    connection.Open();
+
+                    var result = await connection.QueryAsync<Product>(sql);
+                    return result.ToList();
+                }
+                catch (Exception ex)
+                {
+                    throw new NullReferenceException(ex.Message);
+                }
             }
         }
 
         public async Task<Product> GetByIdAsync(int id)
         {
             var sql = "SELECT * FROM Products WHERE Id = @Id";
-            using (var connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection")))
+            using (var connection = new SqlConnection(AppSettings.DefaultConnectionString()))
             {
                 connection.Open();
                 var result = await connection.QuerySingleOrDefaultAsync<Product>(sql, new { Id = id });
@@ -61,7 +62,7 @@ namespace ListForm.Domain.Repository
         {
             entity.AddedOn = DateTime.Now;
             var sql = "Insert into Products (Name,Description,Barcode,Rate,AddedOn) VALUES (@Name,@Description,@Barcode,@Rate,@AddedOn)";
-            using (var connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection")))
+            using (var connection = new SqlConnection(AppSettings.DefaultConnectionString()))
             {
                 connection.Open();
                 var result = await connection.ExecuteAsync(sql, entity);
@@ -72,7 +73,7 @@ namespace ListForm.Domain.Repository
         public async Task<int> DeleteAsync(int id)
         {
             var sql = "DELETE FROM Products WHERE Id = @Id";
-            using (var connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection")))
+            using (var connection = new SqlConnection(AppSettings.DefaultConnectionString()))
             {
                 connection.Open();
                 var result = await connection.ExecuteAsync(sql, new { Id = id });
@@ -84,7 +85,7 @@ namespace ListForm.Domain.Repository
         {
             entity.ModifiedOn = DateTime.Now;
             var sql = "UPDATE Products SET Name = @Name, Description = @Description, Barcode = @Barcode, Rate = @Rate, ModifiedOn = @ModifiedOn  WHERE Id = @Id";
-            using (var connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection")))
+            using (var connection = new SqlConnection(AppSettings.DefaultConnectionString()))
             {
                 connection.Open();
                 var result = await connection.ExecuteAsync(sql, entity);

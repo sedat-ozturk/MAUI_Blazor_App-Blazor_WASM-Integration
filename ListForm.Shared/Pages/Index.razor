@@ -5,7 +5,7 @@
 
 <PageTitle>Index</PageTitle>
 
-<DataGrid TItem="Product"
+@*<DataGrid TItem="Product"
           Data="@productList"
           Responsive
           Filterable>
@@ -14,7 +14,7 @@
     <DataGridColumn Field="@nameof(Product.Name)" Caption="Name" Editable />
     <DataGridColumn Field="@nameof(Product.Description)" Caption="Description" Editable />
     <DataGridColumn Field="@nameof(Product.AddedOn)" Caption="AddedOn" Editable />
-</DataGrid>
+</DataGrid>*@
 
 @code {
     private List<Product> productList;
